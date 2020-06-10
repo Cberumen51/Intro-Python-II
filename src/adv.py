@@ -1,4 +1,7 @@
+import time
 from room import Room
+from player import Character
+
 
 # Declare all the rooms
 
@@ -38,14 +41,33 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+player_name = input('Hello! please enter your name!')
+current_room = room['outside']
+player_1 = Character(player_name, current_room)
 # Write a loop that:
-#
+while True:
 # * Prints the current room name
+    print(player_1.current_room)
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
-#
+Answer_N = ["N", "n"]
+Answer_W = ["W", "w"]
+Answer_S = ["S", "s"]
+Answer_E = ["E", "e"]
+
+required = ("\n That movement isn't allow. Use only N, W, S, E to move")
 # If the user enters "q", quit the game.
+
+def beginning():
+    print ("After a long journey you finally arrive outside MixAmp Cave. An excited look comes across you face as you imagine the wonderful treasure it holds from all the stories you've heard.")
+    time.sleep(1)
+    print ("""N. Move into the cave mount""")
+    choice = input(">>>") #first move
+    if choice in Answer_N:
+        option_foyer()
+    else:
+        print (required)
+        intro()
