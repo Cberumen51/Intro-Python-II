@@ -1,9 +1,9 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
 
-class Character:
+class Player:
     # name
+    # current_room
     # class
-    def __init__(self, name, location):
-        self.name = name
-        self.location = location
+    def __init__(self, current_room=None):
+        self.current_room = current_room
